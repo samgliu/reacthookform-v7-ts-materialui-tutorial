@@ -22,7 +22,7 @@ interface IFormProps {
 
 const formSchema: SchemaOf<IFormProps> = object({
   name: string().required('Name is required'),
-  message: string().required('Message is reqsuired'),
+  message: string().required('Message is required'),
 });
 
 const FieldArrayForm: FC = () => {
@@ -31,8 +31,9 @@ const FieldArrayForm: FC = () => {
   const methods = useForm<IFormProps>({
     resolver: yupResolver(formSchema),
   });
+
   const submitRecipe: SubmitHandler<IFormProps> = async (data: IFormProps) => {
-    console.log('data submitted ', data);
+    console.log('data submitted', data);
   };
 
   return (
@@ -44,7 +45,7 @@ const FieldArrayForm: FC = () => {
               <ReactHookFormTextFieldContainer label="Name" name="name" />
             </Grid>
             <Grid item>
-              <ReactHookFormTextFieldContainer label="Message" name="messsage" />
+              <ReactHookFormTextFieldContainer label="Message" name="message" />
             </Grid>
             <Grid item>
               <Button type="submit" variant="contained" color="primary">
